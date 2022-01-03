@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 //1. WORKING
 // func removeElement(nums []int, val int) int {
 //     l := len(nums)
@@ -20,16 +22,16 @@ package main
 // }
 
 //2. WORKING
-func removeElement(nums []int, val int) int {
-	for i := 0; i < len(nums); i++ {
-		if nums[i] == val {
-			nums = append(nums[:i], nums[i+1:]...)
-			i--
-		}
+// func removeElement(nums []int, val int) int {
+//     for i:=0;i<len(nums);i++{
+//         if nums[i]==val{
+//             nums = append(nums[:i],nums[i+1:]...)
+//             i--
+//         }
 
-	}
-	return len(nums)
-}
+//     }
+//     return len(nums)
+// }
 
 //3. NOT WORKING
 // func removeElement(nums []int, val int) int {
@@ -58,3 +60,28 @@ func removeElement(nums []int, val int) int {
 //     }
 //     return l
 // }
+
+//4. WORKING
+func removeElement(nums []int, val int) int {
+	l := 0
+	r := len(nums) - 1
+
+	for l <= r {
+		if nums[l] == val {
+			nums[l] = nums[r]
+			r--
+		} else {
+			l++
+		}
+	}
+
+	return l
+}
+
+func main() {
+	s := []int{1, 2, 3, 2}
+	v := 2
+	o := removeElement(s, v)
+	fmt.Println(o)
+	fmt.Println(s)
+}
