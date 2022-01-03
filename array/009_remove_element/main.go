@@ -79,8 +79,9 @@ func removeElement(nums []int, val int) int {
 }
 
 func main() {
-	s := []int{1, 2, 3, 2}
+	// s := []int{1, 2, 3, 2}
 	v := 2
+	s := []int{2, 3, 2}
 	o := removeElement(s, v)
 	fmt.Println(o)
 	fmt.Println(s)
