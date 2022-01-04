@@ -62,20 +62,33 @@ import "fmt"
 // }
 
 //4. WORKING
-func removeElement(nums []int, val int) int {
-	l := 0
-	r := len(nums) - 1
+// func removeElement(nums []int, val int) int {
+// 	l := 0
+// 	r := len(nums) - 1
 
-	for l <= r {
-		if nums[l] == val {
-			nums[l] = nums[r]
-			r--
-		} else {
-			l++
+// 	for l <= r {
+// 		if nums[l] == val {
+// 			nums[l] = nums[r]
+// 			r--
+// 		} else {
+// 			l++
+// 		}
+// 	}
+
+// 	return l
+// }
+
+//5. WORKING
+func removeElement(nums []int, val int) int {
+	var i int
+
+	for _, v := range nums {
+		if v != val {
+			nums[i] = v
+			i++
 		}
 	}
-
-	return l
+	return i
 }
 
 func main() {
